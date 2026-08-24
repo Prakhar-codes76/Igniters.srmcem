@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="From Independence to Possibility — An interactive futuristic journey of India from 1947 through 2026 to Viksit Bharat 2047.">
+  <meta name="keywords" content="India 1947, India 2026, Vision 2047, Viksit Bharat, Digital India, Space, Innovation, Tech">
+  <meta name="author" content="Igniters SRMCEM">
+  <title>From Independence to Possibility // 1947 → 2026 → 2047</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- Ambient Cosmic Particle Canvas -->
+  <canvas id="cosmic-canvas" aria-hidden="true"></canvas>
+
+  <!-- Interactive Journey Progress Spine (Fixed Side Indicator) -->
+  <aside class="journey-spine" id="journey-spine" aria-label="Journey Progress Tracker">
+    <div class="spine-line">
+      <div class="spine-fill" id="spine-fill"></div>
+    </div>
+    <div class="spine-nodes">
+      <a href="#hero" class="spine-node active" data-era="hero" aria-label="Home">
+        <span class="node-dot"></span>
+        <span class="node-label">START</span>
+      </a>
+      <a href="#journey" class="spine-node" data-era="1947" aria-label="1947 Foundation">
+        <span class="node-dot saffron-dot"></span>
+        <span class="node-label">1947 // GENESIS</span>
+      </a>
+      <a href="#today" class="spine-node" data-era="2026" aria-label="2026 Today">
+        <span class="node-dot blue-dot"></span>
+        <span class="node-label">2026 // TODAY</span>
+      </a>
+      <a href="#transformation" class="spine-node" data-era="leap" aria-label="Transformation Leap">
+        <span class="node-dot leap-dot"></span>
+        <span class="node-label">2026➔2047 LEAP</span>
+      </a>
+      <a href="#cinematic-2047" class="spine-node" data-era="2047" aria-label="2047 Vision">
+        <span class="node-dot emerald-dot"></span>
+        <span class="node-label">2047 // VIKSIT</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ==========================================
+       1. Navigation Header
+       ========================================== -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar-container">
+      <a href="#hero" class="nav-brand" aria-label="Igniters Homepage">
+        <div class="brand-icon">
+          <!-- Ashoka & Future Geometry SVG -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <circle cx="12" cy="12" r="3"></circle>
+            <line x1="12" y1="2" x2="12" y2="9"></line>
+            <line x1="12" y1="15" x2="12" y2="22"></line>
+            <line x1="2" y1="12" x2="9" y2="12"></line>
+            <line x1="15" y1="12" x2="22" y2="12"></line>
+            <line x1="4.93" y1="4.93" x2="9.88" y2="9.88"></line>
+            <line x1="14.12" y1="14.12" x2="19.07" y2="19.07"></line>
+            <line x1="4.93" y1="19.07" x2="9.88" y2="14.12"></line>
+            <line x1="14.12" y1="9.88" x2="19.07" y2="4.93"></line>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">IGNITERS <span>// 2047</span></span>
+          <span class="brand-sub">FROM FREEDOM TO POSSIBILITY</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#journey" class="nav-link">Journey</a></li>
+          <li><a href="#today" class="nav-link">India Today</a></li>
+          <li><a href="#transformation" class="nav-link">Transformation</a></li>
+          <li><a href="#vision" class="nav-link">Vision</a></li>
+          <li><a href="#cinematic-2047" class="nav-link">Imagine 2047</a></li>
+          <li><a href="#experience" class="nav-link">Explore</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+
+      <!-- Badge Link -->
+      <a href="#cinematic-2047" class="nav-badge-link">
+        <span class="dot" style="width: 6px; height: 6px; border-radius: 50%; background: var(--emerald); display: inline-block;"></span>
+        Imagine 2047
+      </a>
+
+      <!-- Hamburger Button (Mobile) -->
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <div class="hamburger-lines">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </div>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-menu-backdrop" id="mobile-backdrop" aria-hidden="true"></div>
+  <aside class="mobile-menu" id="mobile-menu" aria-label="Mobile Navigation">
+    <ul class="mobile-nav-links">
+      <li><a href="#hero" class="mobile-nav-link">Home <span>→</span></a></li>
+      <li><a href="#journey" class="mobile-nav-link">Journey <span>→</span></a></li>
+      <li><a href="#today" class="mobile-nav-link">India Today <span>→</span></a></li>
+      <li><a href="#vision" class="mobile-nav-link">Vision <span>→</span></a></li>
+      <li><a href="#cinematic-2047" class="mobile-nav-link">Cinematic 2047 <span>→</span></a></li>
+      <li><a href="#experience" class="mobile-nav-link">Explore <span>→</span></a></li>
+      <li><a href="#about" class="mobile-nav-link">About <span>→</span></a></li>
+    </ul>
+    <div style="margin-top: auto; padding-top: 2rem; border-top: 1px solid var(--border-subtle); text-align: center;">
+      <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.1em;">1947 • 2026 • 2047</span>
+    </div>
+  </aside>
+
+  <main>
+    <!-- ==========================================
+         1. HERO SECTION
+         ========================================== -->
+    <section class="hero" id="hero">
+      <div class="container hero-wrapper">
+        <!-- Era Timeline Pill Indicator -->
+        <div class="era-pill" role="status" aria-label="Timeline Progression">
+          <span class="era-year past">1947</span>
+          <span class="era-arrow">⟶</span>
+          <span class="era-year present">2026</span>
+          <span class="era-arrow">⟶</span>
+          <span class="era-year future">2047</span>
+        </div>
+
+        <!-- Headline & Narrative -->
+        <h1 class="hero-headline">
+          From Independence to <span class="highlight-saffron">Possibility</span>
+        </h1>
+
+        <p class="hero-description">
+          A century-long transformation from foundational sovereign freedom to a digital economic superpower, accelerating toward Viksit Bharat 2047 — where human potential and limitless innovation converge.
+        </p>
+
+        <!-- STRICT RULE: ONLY 2 BUTTONS IN HERO -->
+        <div class="hero-cta-group">
+          <a href="#journey" class="btn btn-primary">
+            Explore Journey
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="#experience" class="btn btn-secondary">
+            Start Experience
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Live Milestone Metrics Grid -->
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number saffron">79+</span>
+            <span class="stat-label">Years of Sovereignty</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">1.4B+</span>
+            <span class="stat-label">Connected Minds</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number blue">#1</span>
+            <span class="stat-label">Global Digital Scale (DPI)</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number emerald">100 Yr</span>
+            <span class="stat-label">Centennial Horizon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         2. JOURNEY SECTION (Interactive 3-Era Timeline)
+         ========================================== -->
+    <section class="section" id="journey">
+      <div class="container">
+        <div class="text-center">
+          <div class="section-tag">
+            <span class="dot"></span>
+            Chronicles of Transformation
+          </div>
+          <h2 class="section-title">The Three <span class="gradient-text">Milestones</span></h2>
+          <p class="section-subtitle">
+            Explore the key inflection points of India's trajectory across three pivotal centuries. Select an era below to experience the evolution.
+          </p>
+        </div>
+
+        <!-- Interactive Timeline Tabs -->
+        <div class="timeline-tabs" role="tablist" aria-label="Era Selector">
+          <button class="timeline-tab active" data-year="1947" role="tab" aria-selected="true" aria-controls="pane-1947">
+            <span class="tab-year">1947</span>
+            <span class="tab-title">Foundations of Freedom</span>
+          </button>
+          <button class="timeline-tab tab-2026" data-year="2026" role="tab" aria-selected="false" aria-controls="pane-2026">
+            <span class="tab-year">2026</span>
+            <span class="tab-title">Digital Powerhouse</span>
+          </button>
+          <button class="timeline-tab tab-2047" data-year="2047" role="tab" aria-selected="false" aria-controls="pane-2047">
+            <span class="tab-year">2047</span>
+            <span class="tab-title">Viksit Bharat Horizon</span>
+          </button>
+        </div>
+
+        <!-- Interactive Stage Switching Content -->
+        <div class="timeline-stage">
+          <!-- 1947 Pane -->
+          <div class="timeline-pane active" id="pane-1947" role="tabpanel">
+            <div class="journey-card">
+              <div class="journey-content">
+                <div class="journey-badge saffron">ERA 01 • SOVEREIGN GENESIS</div>
+                <h3 class="journey-headline">1947: A Tryst with Destiny & Institution Building</h3>
+                <p class="journey-text">
+                  From the historic stroke of the midnight hour, India embarked on constructing a secular, democratic republic amidst colossal geopolitical challenges. Visionaries laid the cornerstone of scientific temper, instituting premier research institutes, heavy industries, and agrarian self-sufficiency.
+                </p>
+
+                <div class="journey-milestones">
+                  <div class="milestone-item">
+                    <div class="milestone-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    </div>
+                    <div class="milestone-info">
+                      <h4>The Constitution of India (1950)</h4>
+                      <p>Drafted under Dr. B.R. Ambedkar, establishing the world's most comprehensive egalitarian charter.</p>
+                    </div>
+                  </div>
+
+                  <div class="milestone-item">
+                    <div class="milestone-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+                    </div>
+                    <div class="milestone-info">
+                      <h4>Scientific Temples: IITs, AIIMS & ISRO Roots</h4>
+                      <p>Homi Bhabha and Vikram Sarabhai laid the foundations of atomic energy and satellite research.</p>
+                    </div>
+                  </div>
+
+                  <div class="milestone-item">
+                    <div class="milestone-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <div class="milestone-info">
+                      <h4>Green & White Revolutions</h4>
+                      <p>Transforming a famine-threatened nation into a self-reliant agricultural producer.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="journey-visual journey-visual-historical">
+                <div class="visual-photo-frame">
+                  <img 
+                    src="/images/india-1947-independence.jpg" 
+                    alt="Pandit Jawaharlal Nehru delivering the historic Tryst with Destiny speech at the Constituent Assembly on 14-15 August 1947" 
+                    class="historical-photo" 
+                    loading="lazy"
+                  />
+                  <div class="visual-photo-overlay"></div>
+                  <div class="visual-photo-tag">
+                    <span class="pulse-dot saffron-pulse"></span>
+                    <span>14–15 AUGUST 1947 • MIDNIGHT OF FREEDOM</span>
+                  </div>
+                </div>
+                <div class="visual-caption-box">
+                  <blockquote class="visual-quote">
+                    "At the stroke of the midnight hour, when the world sleeps, India will awake to life and freedom."
+                  </blockquote>
+                  <span class="visual-author">Pandit Jawaharlal Nehru • Constituent Assembly, 1947</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2026 Pane -->
+          <div class="timeline-pane" id="pane-2026" role="tabpanel">
+            <div class="journey-card">
+              <div class="journey-content">
+                <div class="journey-badge blue">ERA 02 • DIGITAL REVOLUTION</div>
+                <h3 class="journey-headline">2026: Global Digital Scale & Deep-Tech Leadership</h3>
+                <p class="journey-text">
+                  Today, India is the nerve center of planetary software development, leading the world in digital public infrastructure with UPI, ONDC, and Aadhaar. With Chandrayaan-3 lunar victories, human spaceflight missions, and a 125,000+ strong startup matrix, India leads the global South.
+                </p>
+
+                <div class="journey-milestones">
+                  <div class="milestone-item">
+                    <div class="milestone-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    </div>
+                    <div class="milestone-info">
+                      <h4>Digital Public Infrastructure (India Stack)</h4>
+                      <p>Over 16 Billion monthly instant transactions democratizing commerce for 1.4 Billion people.</p>
+                    </div>
+                  </div>
+
+                  <div class="milestone-item">
+                    <div class="milestone-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path></svg>
+                    </div>
+                    <div class="milestone-info">
+                      <h4>Chandrayaan-3 & Gaganyaan Missions</h4>
+                      <p>Historic lunar south pole landing and indigenous human spaceflight preparations.</p>
+                    </div>
+                  </div>
+
+                  <div class="milestone-item">
+                    <div class="milestone-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    </div>
+                    <div class="milestone-info">
+                      <h4>World's 3rd Largest Startup Matrix & 115+ Unicorns</h4>
+                      <p>Deep-tech, green hydrogen, aerospace, and generative AI powering global industry.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="journey-visual journey-visual-modern">
+                <div class="visual-photo-frame">
+                  <img 
+                    src="/images/india-2026-digital-space.jpg" 
+                    alt="India 2026 digital infrastructure and space exploration" 
+                    class="historical-photo" 
+                    loading="lazy"
+                  />
+                  <div class="visual-photo-overlay modern-overlay"></div>
+                  <div class="visual-photo-tag blue-tag">
+                    <span class="pulse-dot blue-pulse"></span>
+                    <span>2026 • DIGITAL FRONTIER & SPACE HORIZON</span>
+                  </div>
+                </div>
+                <div class="visual-caption-box">
+                  <blockquote class="visual-quote">
+                    "India's youth has transformed technology from a privilege into an empowering tool of mass inclusion."
+                  </blockquote>
+                  <span class="visual-author">Digital India Milestone • 2026</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2047 Pane -->
+          <div class="timeline-pane" id="pane-2047" role="tabpanel">
+            <div class="journey-card">
+              <div class="journey-content">
+                <div class="journey-badge emerald">ERA 03 • CENTENNIAL HORIZON</div>
+                <h3 class="journey-headline">2047: Viksit Bharat — The Frontier of Possibility</h3>
+                <p class="journey-text">
+                  At the 100-year mark of independence, India realizes the vision of a developed, sustainable, carbon-negative global leader. Harnessing sovereign AI, quantum computational grids, fusion energy, and the Bharatiya Antariksh Space Station, India stands as a beacon for humanity.
+                </p>
+
+                <div class="journey-milestones">
+                  <div class="milestone-item">
+                    <div class="milestone-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path><path d="M12 6v6l4 2"></path></svg>
+                    </div>
+                    <div class="milestone-info">
+                      <h4>Sovereign Quantum & AI Mesh</h4>
+                      <p>Autonomous healthcare, climate resilience, and zero-latency smart governance nationwide.</p>
+                    </div>
+                  </div>
+
+                  <div class="milestone-item">
+                    <div class="milestone-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="2"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+                    </div>
+                    <div class="milestone-info">
+                      <h4>100% Clean Thorium Fusion & Net-Zero Economy</h4>
+                      <p>Complete ecological regeneration with circular bio-cities and clean energy abundance.</p>
+                    </div>
+                  </div>
+
+                  <div class="milestone-item">
+                    <div class="milestone-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                    </div>
+                    <div class="milestone-info">
+                      <h4>Bharatiya Antariksh Station & Lunar Outposts</h4>
+                      <p>Permanent space colonies, microgravity manufacturing, and deep-space scientific frontiers.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="journey-visual journey-visual-futuristic">
+                <div class="visual-photo-frame">
+                  <img 
+                    src="/images/india-2047-futuristic-city.jpg" 
+                    alt="Viksit Bharat 2047 futuristic smart bio-city" 
+                    class="historical-photo" 
+                    loading="lazy"
+                  />
+                  <div class="visual-photo-overlay future-overlay"></div>
+                  <div class="visual-photo-tag emerald-tag">
+                    <span class="pulse-dot emerald-pulse"></span>
+                    <span>2047 • VIKSIT BHARAT CENTENNIAL HORIZON</span>
+                  </div>
+                </div>
+                <div class="visual-caption-box">
+                  <blockquote class="visual-quote">
+                    "2047 is our covenant with destiny — where knowledge, compassion, and innovation reach their zenith."
+                  </blockquote>
+                  <span class="visual-author">Viksit Bharat Charter • 2047</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         3. INDIA TODAY (Interactive Pillars of 2026)
+         ========================================== -->
+    <section class="section" id="today">
+      <div class="container">
+        <div class="text-center">
+          <div class="section-tag">
+            <span class="dot"></span>
+            Present Realities • 2026
+          </div>
+          <h2 class="section-title">India <span class="gradient-text">Today</span></h2>
+          <p class="section-subtitle">
+            Experience the foundational engines driving modern India. Click any interactive card below to explore deep architectural insights.
+          </p>
+        </div>
+
+        <!-- 5 Interactive Pillar Cards -->
+        <div class="pillars-grid">
+          <!-- 1. Technology -->
+          <article class="pillar-card interactive-card" data-card-key="today-tech" tabindex="0" role="button" aria-label="Technology Pillar details">
+            <div class="card-visual-header">
+              <img src="/images/india-2026-digital-space.jpg" alt="Technology and AI Cleanroom 2026" class="card-visual-img" loading="lazy">
+              <div class="card-visual-overlay"></div>
+              <div class="card-visual-tag">2026 • AI & SILICON HUB</div>
+            </div>
+            <div class="pillar-card-body">
+              <div class="pillar-card-header">
+                <div class="pillar-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+                </div>
+                <span class="pillar-index">01 // TECH</span>
+              </div>
+              <h3 class="pillar-title">Technology</h3>
+              <p class="pillar-desc">
+                Leading the world's silicon and sovereign AI initiatives with state-of-the-art semiconductor fabs, supercomputing centers, and global engineering hubs.
+              </p>
+              <div class="pillar-card-footer">
+                <div class="pillar-stats-chip">
+                  <span>Impact:</span> <span class="metric">5.4M+ Tech Workforce</span>
+                </div>
+                <div class="card-tap-indicator">
+                  <span>Tap Deep Dive</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. Education -->
+          <article class="pillar-card interactive-card" data-card-key="today-edu" tabindex="0" role="button" aria-label="Education Pillar details">
+            <div class="card-visual-header">
+              <div class="card-visual-gradient edu-gradient">
+                <div class="matrix-grid-pattern"></div>
+                <div class="vector-visual-symbol">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                </div>
+              </div>
+              <div class="card-visual-overlay"></div>
+              <div class="card-visual-tag">2026 • NEP & DIGITAL UNI</div>
+            </div>
+            <div class="pillar-card-body">
+              <div class="pillar-card-header">
+                <div class="pillar-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                </div>
+                <span class="pillar-index">02 // EDU</span>
+              </div>
+              <h3 class="pillar-title">Education</h3>
+              <p class="pillar-desc">
+                Revolutionized through the National Education Policy, digital universities in 22 languages, and 15,000+ grassroots innovation labs.
+              </p>
+              <div class="pillar-card-footer">
+                <div class="pillar-stats-chip">
+                  <span>Enrollments:</span> <span class="metric">43M+ Higher Ed</span>
+                </div>
+                <div class="card-tap-indicator">
+                  <span>Tap Deep Dive</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Digital India -->
+          <article class="pillar-card interactive-card" data-card-key="today-digital" tabindex="0" role="button" aria-label="Digital India Pillar details">
+            <div class="card-visual-header">
+              <img src="/images/india-2047-digital-metaverse.jpg" alt="Digital Public Infrastructure and UPI Mesh" class="card-visual-img" loading="lazy">
+              <div class="card-visual-overlay"></div>
+              <div class="card-visual-tag">2026 • DPI & UPI MESH</div>
+            </div>
+            <div class="pillar-card-body">
+              <div class="pillar-card-header">
+                <div class="pillar-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                </div>
+                <span class="pillar-index">03 // DPI</span>
+              </div>
+              <h3 class="pillar-title">Digital India</h3>
+              <p class="pillar-desc">
+                The world's most scalable Digital Public Infrastructure — processing 50% of the planet's real-time payments across 1.4 billion citizens seamlessly.
+              </p>
+              <div class="pillar-card-footer">
+                <div class="pillar-stats-chip">
+                  <span>UPI Scale:</span> <span class="metric">16B+ Monthly Txns</span>
+                </div>
+                <div class="card-tap-indicator">
+                  <span>Tap Deep Dive</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. Infrastructure -->
+          <article class="pillar-card interactive-card" data-card-key="today-infra" tabindex="0" role="button" aria-label="Infrastructure Pillar details">
+            <div class="card-visual-header">
+              <img src="/images/india-2047-futuristic-city.jpg" alt="High-Speed Infrastructure and Clean Corridors" class="card-visual-img" loading="lazy">
+              <div class="card-visual-overlay"></div>
+              <div class="card-visual-tag">2026 • GATI SHAKTI & RAIL</div>
+            </div>
+            <div class="pillar-card-body">
+              <div class="pillar-card-header">
+                <div class="pillar-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                </div>
+                <span class="pillar-index">04 // INFRA</span>
+              </div>
+              <h3 class="pillar-title">Infrastructure</h3>
+              <p class="pillar-desc">
+                PM Gati Shakti connecting economic corridors via Vande Bharat bullet trains, green hydrogen energy ports, and expressways.
+              </p>
+              <div class="pillar-card-footer">
+                <div class="pillar-stats-chip">
+                  <span>Clean Energy:</span> <span class="metric">180+ GW Capacity</span>
+                </div>
+                <div class="card-tap-indicator">
+                  <span>Tap Deep Dive</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5. Innovation -->
+          <article class="pillar-card interactive-card" data-card-key="today-inno" tabindex="0" role="button" aria-label="Innovation Pillar details">
+            <div class="card-visual-header">
+              <img src="/images/india-2047-space-station.jpg" alt="ISRO Space Frontiers and Startup Matrix" class="card-visual-img" loading="lazy">
+              <div class="card-visual-overlay"></div>
+              <div class="card-visual-tag">2026 • GAGANYAAN & STARTUPS</div>
+            </div>
+            <div class="pillar-card-body">
+              <div class="pillar-card-header">
+                <div class="pillar-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path></svg>
+                </div>
+                <span class="pillar-index">05 // INNO</span>
+              </div>
+              <h3 class="pillar-title">Innovation</h3>
+              <p class="pillar-desc">
+                From landing at the lunar South Pole to pioneering low-cost space launches and biotech discov              <div class="pillar-card-footer">
+                <div class="pillar-stats-chip">
+                  <span>Startups:</span> <span class="metric">125,000+ Ventures</span>
+                </div>
+                <div class="card-tap-indicator">
+                  <span>Tap Deep Dive</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         3.5 THE GREAT LEAP: 2026 → 2047 TRANSFORMATION
+         ========================================== -->
+    <section class="section transformation-section" id="transformation">
+      <div class="container">
+        <div class="text-center">
+          <div class="section-tag leap-tag">
+            <span class="pulse-dot saffron-pulse"></span>
+            <span>Trajectory of Innovation</span>
+            <span class="pulse-dot emerald-pulse"></span>
+          </div>
+          <h2 class="section-title">The Great Leap: <span class="gradient-text">2026 ➔ 2047</span></h2>
+          <p class="section-subtitle">
+            Witness how India's present high-velocity scale transforms exponentially into the futuristic centennial reality of Viksit Bharat.
+          </p>
+        </div>
+
+        <!-- 5 Interactive Transformation Cards (Side-by-side Evolution) -->
+        <div class="transform-grid">
+          <!-- Item 1: Computing & AI -->
+          <div class="transform-card" tabindex="0">
+            <div class="transform-header">
+              <div class="transform-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect></svg>
+              </div>
+              <span class="transform-domain">COMPUTING & AI ARCHITECTURE</span>
+            </div>
+            <div class="transform-stages">
+              <div class="stage-block stage-2026">
+                <div class="stage-year-badge blue">2026 PRESENT</div>
+                <h4>IndiaAI & Silicon Fabs</h4>
+                <p>10,000+ GPU superclusters, sovereign LLMs in Indic languages, and 28nm commercial wafer fabs in Gujarat.</p>
+              </div>
+              <div class="stage-arrow-wrap">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 7 18 12 13 17"></polyline><line x1="6" y1="12" x2="18" y2="12"></line></svg>
+              </div>
+              <div class="stage-block stage-2047">
+                <div class="stage-year-badge emerald">2047 FUTURE</div>
+                <h4>Optical Quantum & Indic ASI</h4>
+                <p>Decentralized optical quantum mesh with autonomous climate prediction, zero-latency healthcare, and sovereign superintelligence.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2: Mobility & Transit -->
+          <div class="transform-card" tabindex="0">
+            <div class="transform-header">
+              <div class="transform-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+              </div>
+              <span class="transform-domain">HIGH-SPEED MOBILITY & TRANSIT</span>
+            </div>
+            <div class="transform-stages">
+              <div class="stage-block stage-2026">
+                <div class="stage-year-badge blue">2026 PRESENT</div>
+                <h4>Vande Bharat & Expressways</h4>
+                <p>100+ semi-high speed express train routes, dedicated freight corridors, and 10,000+ km of access-controlled expressways.</p>
+              </div>
+              <div class="stage-arrow-wrap">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 7 18 12 13 17"></polyline><line x1="6" y1="12" x2="18" y2="12"></line></svg>
+              </div>
+              <div class="stage-block stage-2047">
+                <div class="stage-year-badge emerald">2047 FUTURE</div>
+                <h4>1,200 km/h Hyperloop & 3D eVTOL</h4>
+                <p>Vacuum-tube hyperloop networks linking mega-regions in 20 minutes, powered by autonomous 3D electric air transit corridors.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3: Clean Energy -->
+          <div class="transform-card" tabindex="0">
+            <div class="transform-header">
+              <div class="transform-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <span class="transform-domain">CLEAN POWER & SUSTAINABILITY</span>
+            </div>
+            <div class="transform-stages">
+              <div class="stage-block stage-2026">
+                <div class="stage-year-badge blue">2026 PRESENT</div>
+                <h4>180 GW Renewables & Green Hydrogen</h4>
+                <p>World's largest solar parks in Rajasthan and green hydrogen valley clusters powering port and heavy industrial corridors.</p>
+              </div>
+              <div class="stage-arrow-wrap">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 7 18 12 13 17"></polyline><line x1="6" y1="12" x2="18" y2="12"></line></svg>
+              </div>
+              <div class="stage-block stage-2047">
+                <div class="stage-year-badge emerald">2047 FUTURE</div>
+                <h4>Net-Negative Thorium Fusion</h4>
+                <p>Commercial magnetic fusion power plants harnessing indigenous Thorium, generating infinite baseload clean energy for all.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4: Space Exploration -->
+          <div class="transform-card" tabindex="0">
+            <div class="transform-header">
+              <div class="transform-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path></svg>
+              </div>
+              <span class="transform-domain">DEEP SPACE & EXPEDITIONS</span>
+            </div>
+            <div class="transform-stages">
+              <div class="stage-block stage-2026">
+                <div class="stage-year-badge blue">2026 PRESENT</div>
+                <h4>Gaganyaan Crew & Lunar Victories</h4>
+                <p>Historic Chandrayaan-3 south pole touchdown and indigenous human spaceflight missions in low Earth orbit.</p>
+              </div>
+              <div class="stage-arrow-wrap">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 7 18 12 13 17"></polyline><line x1="6" y1="12" x2="18" y2="12"></line></svg>
+              </div>
+              <div class="stage-block stage-2047">
+                <div class="stage-year-badge emerald">2047 FUTURE</div>
+                <h4>Bharatiya Space Station & Moon Base</h4>
+                <p>Permanent modular space habitat (BAS), lunar south pole research colonies harvesting Helium-3, and interplanetary expeditions.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5: Digital Stack -->
+          <div class="transform-card" tabindex="0">
+            <div class="transform-header">
+              <div class="transform-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              </div>
+              <span class="transform-domain">CITIZEN SOVEREIGNTY & FINTECH</span>
+            </div>
+            <div class="transform-stages">
+              <div class="stage-block stage-2026">
+                <div class="stage-year-badge blue">2026 PRESENT</div>
+                <h4>16B Monthly UPI Payments & DPI</h4>
+                <p>World's fastest real-time payments, open network for digital commerce (ONDC), and Aadhaar verifiable digital credentials.</p>
+              </div>
+              <div class="stage-arrow-wrap">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 7 18 12 13 17"></polyline><line x1="6" y1="12" x2="18" y2="12"></line></svg>
+              </div>
+              <div class="stage-block stage-2047">
+                <div class="stage-year-badge emerald">2047 FUTURE</div>
+                <h4>Decentralized Citizen Metaverse</h4>
+                <p>Universal basic compute credits, verifiable self-sovereign identities, zero-leakage transparent democratic protocols.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         4. VISION 2047 (6 Futuristic Cards)
+         ========================================== -->
+    <section class="section" id="vision">
+      <div class="container">
+        <div class="text-center">
+          <div class="section-tag">
+            <span class="dot" style="background: var(--emerald); box-shadow: 0 0 8px var(--emerald);"></span>
+            Centennial Vision • 2047
+          </div>
+          <h2 class="section-title">Vision <span class="gradient-text">2047</span></h2>
+          <p class="section-subtitle">
+            Six transformative pillars of Viksit Bharat — where cutting-edge technology elevates human prosperity in harmony with nature. Click any card to explore.
+          </p>
+        </div>
+
+        <!-- 6 Futuristic Vision Cards -->
+        <div class="vision-grid">
+          <!-- 1. AI & Technology -->
+          <article class="vision-card interactive-card" data-card-key="v47-ai" tabindex="0" role="button" aria-label="AI and Technology 2047 details">
+            <div class="card-visual-header">
+              <img src="/images/india-2047-quantum-ai.jpg" alt="Sovereign Quantum AI Matrix 2047" class="card-visual-img" loading="lazy">
+              <div class="card-visual-overlay"></div>
+              <div class="vision-card-badge">FUTURISTIC AI</div>
+            </div>
+            <div class="vision-card-body">
+              <div class="vision-icon-wrap">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 3.37 2.1 6.27 5.09 7.42V20a2 2 0 0 0 2 2h1.82a2 2 0 0 0 2-2v-2.58C17.9 16.27 20 13.37 20 10a8 8 0 0 0-8-8z"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line><path d="M8 13c1.5 1 6.5 1 8 0"></path></svg>
+              </div>
+              <h3 class="vision-card-title">AI & Technology</h3>
+              <p class="vision-card-desc">
+                Sovereign artificial superintelligence grids coordinating zero-latency public health, climate simulation, and quantum cryptography.
+              </p>
+              <ul class="vision-card-features">
+                <li>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Ethical Indic Superintelligence Core
+                </li>
+                <li>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Nationwide Optical Quantum Compute Grid
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 2. Education -->
+          <article class="vision-card interactive-card" data-card-key="v47-edu" tabindex="0" role="button" aria-label="Education 2047 details">
+            <div class="card-visual-header">
+              <div class="card-visual-gradient neural-gradient">
+                <div class="neural-nodes-pattern"></div>
+                <div class="vector-visual-symbol">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a10 10 0 0 0-7.07 17.07A9.95 9.95 0 0 0 12 22a10 10 0 0 0 7.07-2.93A9.95 9.95 0 0 0 22 12a10 10 0 0 0-10-10z"></path><circle cx="12" cy="12" r="4"></circle></svg>
+                </div>
+              </div>
+              <div class="card-visual-overlay"></div>
+              <div class="vision-card-badge">NEURAL LEARNING</div>
+            </div>
+            <div class="vision-card-body">
+              <div class="vision-icon-wrap">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+              </div>
+              <h3 class="vision-card-title">Education</h3>
+              <p class="vision-card-desc">
+                Universal neural mentorship, holographic research environments, and personalized cognitive learning unlocking 100% human capability.
+              </p>
+              <ul class="vision-card-features">
+                <li>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Adaptive AI Cognitive Tutors
+                </li>
+                <li>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Global Research Ashram Hubs
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 3. Sustainability -->
+          <article class="vision-card interactive-card" data-card-key="v47-sust" tabindex="0" role="button" aria-label="Sustainability 2047 details">
+            <div class="card-visual-header">
+              <img src="/images/india-2047-fusion-energy.jpg" alt="Thorium Fusion & Clean Energy 2047" class="card-visual-img" loading="lazy">
+              <div class="card-visual-overlay"></div>
+              <div class="vision-card-badge">NET-ZERO FUSION</div>
+            </div>
+            <div class="vision-card-body">
+              <div class="vision-icon-wrap">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <h3 class="vision-card-title">Sustainability</h3>
+              <p class="vision-card-desc">
+                Limitless clean Thorium fusion power, carbon-negative manufacturing, atmospheric water harvesting, and restored ecological biodiversity.
+              </p>
+              <ul class="vision-card-features">
+                <li>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  100% Clean Thorium Fusion Power
+                </li>
+                <li>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Zero Waste Circular Bio-Economy
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 4. Smart Cities -->
+          <article class="vision-card interactive-card" data-card-key="v47-cities" tabindex="0" role="button" aria-label="Smart Cities 2047 details">
+            <div class="card-visual-header">
+              <img src="/images/india-2047-futuristic-city.jpg" alt="Vertical Bio-Cities 2047" class="card-visual-img" loading="lazy">
+              <div class="card-visual-overlay"></div>
+              <div class="vision-card-badge">BIO-CITIES</div>
+            </div>
+            <div class="vision-card-body">
+              <div class="vision-icon-wrap">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"></path><path d="M19 21v-4"></path><path d="M19 13v-2"></path><path d="M19 7V3H5v18"></path><path d="M9 7h2"></path><path d="M9 11h2"></path><path d="M9 15h2"></path></svg>
+              </div>
+              <h3 class="vision-card-title">Smart Cities</h3>
+              <p class="vision-card-desc">
+                Vertical carbon-absorbing architecture, autonomous 3D maglev transit, and 15-minute bio-cities seamlessly integrated with nature.
+              </p>
+              <ul class="vision-card-features">
+                <li>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Autonomous 3D Aerial Transit
+                </li>
+                <li>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Hyperloop High-Speed National Grid
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 5. Digital India -->
+          <article class="vision-card interactive-card" data-card-key="v47-digital" tabindex="0" role="button" aria-label="Digital India 2047 details">
+            <div class="card-visual-header">
+              <img src="/images/india-2047-digital-metaverse.jpg" alt="Decentralized Sovereign Citizen 2047" class="card-visual-img" loading="lazy">
+              <div class="card-visual-overlay"></div>
+              <div class="vision-card-badge">SOVEREIGN CITIZEN</div>
+            </div>
+            <div class="vision-card-body">
+              <div class="vision-icon-wrap">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              </div>
+              <h3 class="vision-card-title">Digital India</h3>
+              <p class="vision-card-desc">
+                Decentralized sovereign citizen empowerment where identity, compute access, and democratic governance are universal fundamental rights.
+              </p>
+              <ul class="vision-card-features">
+                <li>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Universal Basic Compute & Energy
+                </li>
+                <li>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Real-Time Leakage-Free Governance
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 6. Space & Innovation -->
+          <article class="vision-card interactive-card" data-card-key="v47-space" tabindex="0" role="button" aria-label="Space and Innovation 2047 details">
+            <div class="card-visual-header">
+              <img src="/images/india-2047-space-station.jpg" alt="Bharatiya Antariksh Station 2047" class="card-visual-img" loading="lazy">
+              <div class="card-visual-overlay"></div>
+              <div class="vision-card-badge">GALACTIC FRONTIER</div>
+            </div>
+            <div class="vision-card-body">
+              <div class="vision-icon-wrap">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><line x1="9" y1="9" x2="9.01" y2="9"></line></svg>
+              </div>
+              <h3 class="vision-card-title">Space & Innovation</h3>
+              <p class="vision-card-desc">
+                Bharatiya Antariksh Space Station, permanent lunar colonies harvesting Helium-3, and interplanetary deep-space probes.
+              </p>
+              <ul class="vision-card-features">
+                <li>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Permanent Human Orbital Habitats
+                </li>
+                <li>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Lunar South Pole Research Outposts
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         4.5 "IMAGINE INDIA IN 2047" CINEMATIC EXPERIENCE
+         ========================================== -->
+    <section class="section cinematic-section" id="cinematic-2047">
+      <div class="container">
+        <div class="text-center">
+          <div class="section-tag cinematic-tag">
+            <span class="pulse-dot emerald-pulse"></span>
+            Cinematic Horizon • 2047
+          </div>
+          <h2 class="section-title">Imagine India <span class="gradient-text">in 2047</span></h2>
+          <p class="section-subtitle">
+            An interactive cinematic projection of India at its centennial milestone. Teleport across visionary sectors, inspect live holographic telemetry, and experience Viksit Bharat in real time.
+          </p>
+        </div>
+
+        <!-- Cinematic Viewport Container -->
+        <div class="cinematic-theater" id="cinematic-theater">
+          <!-- Viewport Header Toolbar -->
+          <div class="theater-toolbar">
+            <div class="telemetry-badge">
+              <span class="live-blip"></span>
+              <span class="telemetry-text" id="telemetry-sector-name">SECTOR 01 // NEO-DELHI BIO-METROPOLIS</span>
+            </div>
+            
+            <div class="theater-controls-top">
+              <button class="theater-btn" id="hud-mode-toggle" type="button" title="Toggle HUD Display Mode">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="m4.93 4.93 4.24 4.24"></path><path d="m14.83 9.17 4.24-4.24"></path><path d="m14.83 14.83 4.24 4.24"></path><path d="m9.17 14.83-4.24 4.24"></path></svg>
+                <span>HUD: OPTICAL</span>
+              </button>
+              
+              <button class="theater-btn" id="audio-synth-toggle" type="button" title="Toggle Sci-Fi Ambient Resonance">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+                <span id="audio-synth-label">AUDIO: OFF</span>
+              </button>
+
+              <button class="theater-btn theater-btn-expand" id="theater-fullscreen-btn" type="button" title="Toggle Fullscreen">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Main Cinematic Screen (3D Tilt & Holographic Overlay) -->
+          <div class="theater-screen-wrapper" id="theater-screen">
+            <div class="theater-screen-media">
+              <img 
+                src="/images/india-2047-futuristic-city.jpg" 
+                alt="Imagine India in 2047 - Cinematic Futuristic View" 
+                class="theater-active-image" 
+                id="theater-active-image"
+              />
+              
+              <!-- Elegant Cinema Title Overlay -->
+              <div class="cinema-title-overlay">
+                <div class="cinema-overlay-badge">CENTENNIAL VISION</div>
+                <h3 class="cinema-overlay-title">Imagine India in 2047</h3>
+                <p class="cinema-overlay-sub">A century of sovereign freedom, ethical intelligence, and planetary harmony.</p>
+              </div>
+
+              <!-- Holographic Scanline & Grid Effect -->
+              <div class="hologram-grid-overlay" id="hologram-overlay"></div>
+              <div class="hologram-scanline"></div>
+              <div class="hologram-vignette"></div>
+
+              <!-- Interactive HUD Overlay Elements -->
+              <div class="hud-layer">
+                <!-- Top Left Coordinates -->
+                <div class="hud-box hud-top-left">
+                  <div class="hud-label">TELEMETRY COORDINATES</div>
+                  <div class="hud-val" id="hud-coordinates">LAT: 28.6139° N // LON: 77.2090° E</div>
+                  <div class="hud-sub">ORBITAL SYNCHRONIZATION: 100%</div>
+                </div>
+
+                <!-- Top Right System Status -->
+                <div class="hud-box hud-top-right">
+                  <div class="hud-label">QUANTUM MESH STATUS</div>
+                  <div class="hud-val highlight-emerald" id="hud-grid-status">GRID OPTIMAL • ZERO LOSS</div>
+                  <div class="hud-sub" id="hud-power-stat">THORIUM FUSION: 14.8 GW BASELOAD</div>
+                </div>
+
+                <!-- Center Crosshair / Scanning Reticle -->
+                <div class="hud-reticle">
+                  <div class="reticle-circle"></div>
+                  <div class="reticle-line reticle-h"></div>
+                  <div class="reticle-line reticle-v"></div>
+                  <div class="reticle-coords">2047 // VIKSIT HORIZON</div>
+                </div>
+
+                <!-- Bottom Metrics Bar -->
+                <div class="hud-bottom-metrics">
+                  <div class="metric-block">
+                    <span class="m-title">CARBON NEUTRALITY</span>
+                    <span class="m-val emerald">100% (NET-NEGATIVE)</span>
+                  </div>
+                  <div class="metric-block">
+                    <span class="m-title">POPULATION EMPOWERMENT</span>
+                    <span class="m-val saffron">1.52 BILLION SOVEREIGN</span>
+                  </div>
+                  <div class="metric-block">
+                    <span class="m-title">SPACE ASSETS</span>
+                    <span class="m-val blue">BAS STATION + LUNAR-01</span>
+                  </div>
+                  <div class="metric-block">
+                    <span class="m-title">HIGH-SPEED TRANSIT</span>
+                    <span class="m-val">1,200 KM/H HYPERLOOP</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sector Selector Tabs (Interactive Switching) -->
+          <div class="theater-sector-bar">
+            <div class="sector-tabs-header">
+              <span class="sector-tag-title">SELECT 2047 SIMULATION SECTOR:</span>
+            </div>
+            <div class="sector-tabs-grid" role="tablist" aria-label="Cinematic 2047 Sectors">
+              <button class="sector-tab active" data-sector="cities" data-img="/images/india-2047-futuristic-city.jpg" data-name="SECTOR 01 // NEO-DELHI BIO-METROPOLIS" data-coords="LAT: 28.6139° N // LON: 77.2090° E" data-desc="Vertical bio-cities, 3D aerial automated transit, and net-negative carbon sky-gardens." role="tab" aria-selected="true">
+                <span class="sector-tab-icon">🏙️</span>
+                <div class="sector-tab-info">
+                  <span class="s-name">Smart Bio-Cities</span>
+                  <span class="s-sub">Aerial Corridors & Green Towers</span>
+                </div>
+              </button>
+
+              <button class="sector-tab" data-sector="space" data-img="/images/india-2047-space-station.jpg" data-name="SECTOR 02 // BHARATIYA SPACE STATION (BAS)" data-coords="ORBIT: 420 KM LEO // INCL: 51.6°" data-desc="Permanent microgravity orbital habitat, biotech crystallization labs, and lunar deep-space launchpad." role="tab" aria-selected="false">
+                <span class="sector-tab-icon">🚀</span>
+                <div class="sector-tab-info">
+                  <span class="s-name">Orbital Station & Moon</span>
+                  <span class="s-sub">Bharatiya Antariksh Colony</span>
+                </div>
+              </button>
+
+              <button class="sector-tab" data-sector="ai" data-img="/images/india-2047-quantum-ai.jpg" data-name="SECTOR 03 // BENGALURU QUANTUM COMPUTE HUB" data-coords="LAT: 12.9716° N // LON: 77.5946° E" data-desc="Optical photon quantum supercomputers powering nationwide sovereign AI and predictive healthcare." role="tab" aria-selected="false">
+                <span class="sector-tab-icon">🧠</span>
+                <div class="sector-tab-info">
+                  <span class="s-name">Quantum AI Matrix</span>
+                  <span class="s-sub">Sovereign Superintelligence</span>
+                </div>
+              </button>
+
+              <button class="sector-tab" data-sector="energy" data-img="/images/india-2047-fusion-energy.jpg" data-name="SECTOR 04 // THORIUM FUSION ENERGY GRID" data-coords="LAT: 19.0760° N // LON: 72.8777° E" data-desc="Limitless thorium magnetic fusion baseload power, floating solar megastructures, and water abundance." role="tab" aria-selected="false">
+                <span class="sector-tab-icon">⚡</span>
+                <div class="sector-tab-info">
+                  <span class="s-name">Thorium Clean Fusion</span>
+                  <span class="s-sub">Infinite Clean Baseload</span>
+                </div>
+              </button>
+
+              <button class="sector-tab" data-sector="digital" data-img="/images/india-2047-digital-metaverse.jpg" data-name="SECTOR 05 // SOVEREIGN CITIZEN METAVERSE" data-coords="NATIONAL DECENTRALIZED PROTOCOL MESH" data-desc="Decentralized sovereign data ownership, universal basic compute, and friction-free transparent democracy." role="tab" aria-selected="false">
+                <span class="sector-tab-icon">🌐</span>
+                <div class="sector-tab-info">
+                  <span class="s-name">Digital Sovereignty</span>
+                  <span class="s-sub">Decentralized Citizen Mesh</span>
+                </div>
+              </button>
+
+              <button class="sector-tab" data-sector="today-space" data-img="/images/india-2026-digital-space.jpg" data-name="SECTOR 06 // 2026 LAUNCHPAD & DIGITAL ENGINE" data-coords="LAT: 13.7199° N // LON: 80.2304° E" data-desc="The foundational leap from 2026 digital infrastructure and Gaganyaan spaceflight missions to 2047." role="tab" aria-selected="false">
+                <span class="sector-tab-icon">🛰️</span>
+                <div class="sector-tab-info">
+                  <span class="s-name">2026 Foundation</span>
+                  <span class="s-sub">DPI & Space Genesis</span>
+                </div>
+              </button>
+            </div>
+
+            <!-- Sector Description Banner -->
+            <div class="sector-desc-box">
+              <div class="desc-content">
+                <span class="desc-badge">SECTOR BRIEFING:</span>
+                <p id="sector-briefing-text">Vertical bio-cities, 3D aerial automated transit, and net-negative carbon sky-gardens seamlessly integrated into urban India.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         5 & 6. INTERACTIVE EXPERIENCE: "YOUR VISION" + "YOUR ROLE"
+         ========================================== -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="text-center">
+          <div class="section-tag">
+            <span class="dot"></span>
+            Co-Creating Viksit Bharat
+          </div>
+          <h2 class="section-title">Define Your <span class="gradient-text">2047 Footprint</span></h2>
+          <p class="section-subtitle">
+            Every citizen is a co-architect of India's centennial milestone. Select your key interests and your role to generate your personalized 2047 Blueprint.
+          </p>
+        </div>
+
+        <div class="interactive-experience-box">
+          <!-- Step 5: What is your vision for 2047? -->
+          <div class="experience-step-header">
+            <span class="step-count">Step 01 // Interests</span>
+            <h3 class="step-question">What is your vision for 2047?</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.25rem;">
+              Select one or multiple passion domains:
+            </p>
+          </div>
+
+          <!-- Interest Selection Chips -->
+          <div class="interests-selector" role="group" aria-label="Select Vision Interests">
+            <button class="interest-chip selected" data-interest="AI" type="button">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 3.37 2.1 6.27 5.09 7.42V20a2 2 0 0 0 2 2h1.82a2 2 0 0 0 2-2v-2.58C17.9 16.27 20 13.37 20 10a8 8 0 0 0-8-8z"></path></svg>
+              AI
+            </button>
+            <button class="interest-chip" data-interest="Education" type="button">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path></svg>
+              Education
+            </button>
+            <button class="interest-chip" data-interest="Environment" type="button">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              Environment
+            </button>
+            <button class="interest-chip" data-interest="Space" type="button">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path></svg>
+              Space
+            </button>
+            <button class="interest-chip selected" data-interest="Technology" type="button">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect></svg>
+              Technology
+            </button>
+            <button class="interest-chip" data-interest="Entrepreneurship" type="button">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              Entrepreneurship
+            </button>
+          </div>
+
+          <!-- Step 6: What is your role? -->
+          <div class="experience-step-header">
+            <span class="step-count">Step 02 // Your Calling</span>
+            <h3 class="step-question">What is your role?</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.25rem;">
+              Choose your primary sphere of impact:
+            </p>
+          </div>
+
+          <!-- Role Selectable Cards -->
+          <div class="roles-grid" role="radiogroup" aria-label="Select Your Role">
+            <!-- Student -->
+            <div class="role-card" data-role="Student" tabindex="0" role="radio" aria-checked="false">
+              <div class="role-icon-circle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+              </div>
+              <h4>Student</h4>
+              <p>Future Leader & Learner</p>
+            </div>
+
+            <!-- Developer -->
+            <div class="role-card selected" data-role="Developer" tabindex="0" role="radio" aria-checked="true">
+              <div class="role-icon-circle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              </div>
+              <h4>Developer</h4>
+              <p>Code & Systems Builder</p>
+            </div>
+
+            <!-- Researcher -->
+            <div class="role-card" data-role="Researcher" tabindex="0" role="radio" aria-checked="false">
+              <div class="role-icon-circle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2v7.31"></path><path d="M14 9.3V2"></path><path d="M8.5 2h7"></path><path d="M14 9.3a6.5 6.5 0 1 1-4 0"></path><path d="M5.52 16h12.96"></path></svg>
+              </div>
+              <h4>Researcher</h4>
+              <p>Frontier Science Pioneer</p>
+            </div>
+
+            <!-- Entrepreneur -->
+            <div class="role-card" data-role="Entrepreneur" tabindex="0" role="radio" aria-checked="false">
+              <div class="role-icon-circle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              </div>
+              <h4>Entrepreneur</h4>
+              <p>Venture & Impact Catalyst</p>
+            </div>
+
+            <!-- Creator -->
+            <div class="role-card" data-role="Creator" tabindex="0" role="radio" aria-checked="false">
+              <div class="role-icon-circle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+              </div>
+              <h4>Creator</h4>
+              <p>Narrative & Visual Voice</p>
+            </div>
+          </div>
+
+          <!-- Dynamic Personalized Output Box -->
+          <div class="personalized-manifesto-box" aria-live="polite">
+            <div class="manifesto-header">
+              <div class="manifesto-title-badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                Personalized 2047 Manifesto
+              </div>
+              <div class="manifesto-id" id="manifesto-id">VB47-ID: #4829-DEV</div>
+            </div>
+
+            <h4 class="manifesto-custom-title" id="manifesto-title">Autonomous Deep-Space & AI Developer of 2047</h4>
+            <p class="manifesto-message" id="manifesto-message">
+              Loading your personal projection for 2047...
+            </p>
+
+            <div class="manifesto-blueprint-tags" id="manifesto-tags">
+              <!-- Blueprint tags injected dynamically -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         7. ABOUT SECTION (Context & Vision)
+         ========================================== -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="text-center">
+          <div class="section-tag">
+            <span class="dot"></span>
+            About The Movement
+          </div>
+          <h2 class="section-title">Igniting The <span class="gradient-text">Next Century</span></h2>
+          <p class="section-subtitle">
+            Initiated by IGNITERS at SRMCEM, this initiative maps India’s exponential journey — bridging the sacrifice of 1947, the technological triumphs of 2026, and the limitless horizons of Viksit Bharat 2047.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         8. FINAL SECTION ("2047 is not just a year. It is a direction.")
+         ========================================== -->
+    <section class="final-section" id="final">
+      <div class="container">
+        <div class="final-content">
+          <div class="section-tag" style="margin-bottom: 1.5rem;">
+            <span class="dot"></span>
+            Centennial Destiny
+          </div>
+
+          <h2 class="final-headline">
+            "2047 is not just a year.
+            <span class="direction-highlight">It is a direction."</span>
+          </h2>
+
+          <p class="final-description">
+            The foundation has been laid across eight decades of relentless determination. The possibilities belong to those who build today.
+          </p>
+
+          <!-- STRICT RULE: ONLY ONE ACTION IN FINAL SECTION -->
+          <button class="btn btn-explore-again" id="explore-again-btn" type="button">
+            Explore Again
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+              <polyline points="3 3 3 8 8 8"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       Footer
+       ========================================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-copy">
+        © 2026 IGNITERS // SRMCEM • Dedicated to the journey of 1947 → 2026 → 2047
+      </div>
+      <ul class="footer-links">
+        <li><a href="#hero" class="footer-link">Home</a></li>
+        <li><a href="#journey" class="footer-link">Journey</a></li>
+        <li><a href="#today" class="footer-link">India Today</a></li>
+        <li><a href="#vision" class="footer-link">Vision 2047</a></li>
+        <li><a href="#experience" class="footer-link">Explore</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       Interactive Details Modal (Deep Dive)
+       ========================================== -->
+  <div class="modal-overlay" id="details-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="modal-close" aria-label="Close dialog">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div class="section-tag" id="modal-tag" style="margin-bottom: 0.75rem;">ARCHITECTURAL PILLAR</div>
+      <h3 class="section-title" id="modal-title" style="font-size: 1.65rem; margin-bottom: 1.25rem;">Pillar Details</h3>
+      <div id="modal-body">
+        <!-- Deep-dive content injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/canvas-bg.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
